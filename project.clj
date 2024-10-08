@@ -1,7 +1,7 @@
 (defproject learndatalogtoday "0.1.0"
   :description "Interactive Datalog Tutorial"
   :url "http://learndatalogtoday.org"
-  :dependencies [[org.clojure/clojure "1.8.0"]
+  :dependencies [[org.clojure/clojure "1.12.0"]
                  [org.clojure/clojurescript "1.9.227"]
                  [compojure "1.5.1"]
                  [ring/ring-jetty-adapter "1.5.0"]

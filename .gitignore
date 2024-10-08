@@ -15,3 +15,11 @@ pom.xml
 libpeerconnection.log
 .clj-kondo
 .lein-repl-history
+
+.nrepl-*
+.cpcache/
+.DS_Store
+.calva/output-window
+.calva/repl.calva-repl
+.lsp/.cache
+.clj-kondo/.cache

@@ -8,7 +8,7 @@
             [datomic-query-helpers.core :refer [check-query
                                                 normalize
                                                 pretty-query-string]]
-            [datomic.api :as d]
+            [datomic.client.api :as d]
             [fipp.edn :as fipp]
             [hiccup.page :refer [html5]]
             [learndatalogtoday.views :as views]
@@ -116,12 +116,14 @@
    (route/not-found "Not Found")))
 
 (defn init-db [name schema seed-data]
-  (let [uri (str "datomic:mem://" name)
-        conn (do (d/delete-database uri)
-                 (d/create-database uri)
-                 (d/connect uri))]
-    @(d/transact conn schema)
-    @(d/transact conn seed-data)
+  (let [client (d/client {:storage-dir :mem
+                          :server-type :datomic-local
+                          :system "dev"})
+        conn (do (d/delete-database client {})
+                 (d/create-database client {})
+                 (d/connect client {}))]
+    (d/transact conn {:tx-data schema})
+    (d/transact conn {:tx-data seed-data})
     (d/db conn)))
 
 (def app

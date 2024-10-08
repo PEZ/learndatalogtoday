@@ -5,7 +5,7 @@
                  [org.clojure/clojurescript "1.9.227"]
                  [compojure "1.5.1"]
                  [ring/ring-jetty-adapter "1.5.0"]
-                 [com.datomic/datomic-free "0.9.5394"]
+                 [com.datomic/local    "1.0.285"]
                  [datomic-query-helpers "0.1.1"]
                  [hiccup "1.0.5"]
                  [markdown-clj "0.9.89"]
